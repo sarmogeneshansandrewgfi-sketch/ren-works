@@ -3,7 +3,7 @@ import {
   ShoppingBag, Minus, Plus, X, CreditCard, CheckCircle2, 
   Scissors, ArrowRight, Calendar, Sparkles 
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 import { CustomClothingReservation } from './CustomClothingReservation';
 

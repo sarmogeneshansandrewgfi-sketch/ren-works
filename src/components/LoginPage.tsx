@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Scissors, Lock, User, Shield, ShoppingBag } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoginPageProps {
   onLogin: (userType: 'admin' | 'customer', username: string) => void;
@@ -12,7 +12,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Mock credentials - in production, this would be handled by a backend
+  // Mock credentials
   const credentials = {
     admin: { username: 'admin', password: 'admin123' },
     customer: { username: 'customer', password: 'customer123' }
@@ -33,7 +33,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-amber-50 to-slate-50 flex items-center justify-center p-6">
-      {/* Decorative Elements */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-200 rounded-full blur-3xl opacity-30" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-slate-200 rounded-full blur-3xl opacity-30" />
 
@@ -54,9 +53,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 </div>
                 <span className="text-3xl font-bold text-white">Ren-Ren Works</span>
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Welcome Back
-              </h2>
+              <h2 className="text-4xl font-bold text-white mb-4">Welcome Back</h2>
               <p className="text-slate-300 text-lg mb-8">
                 Sign in to access your {loginType === 'admin' ? 'management dashboard' : 'ordering portal'}
               </p>
@@ -137,9 +134,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               )}
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Username
-                </label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Username</label>
                 <div className="relative">
                   <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
@@ -154,9 +149,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Password
-                </label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Password</label>
                 <div className="relative">
                   <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input

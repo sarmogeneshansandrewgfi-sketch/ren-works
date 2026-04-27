@@ -1,19 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react()],
   server: {
-    port: 5179,
+    port: 5177,
     proxy: {
-      '/ren-ren-api': {
-        target: 'http://localhost',
+      '/api-proxy': {
+        target: 'http://localhost/ren-ren-api',
         changeOrigin: true,
-        rewrite: (path) => path
+        rewrite: (path) => path.replace(/^\/api-proxy/, '/api')
       }
     }
   }
